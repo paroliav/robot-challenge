@@ -1,3 +1,11 @@
 #!/usr/bin/env ruby
 
-require "robot/challenge"
+require_relative '../lib/robot'
+robot = Robot.new
+while true do
+  begin
+    robot.process_command(gets)
+  rescue Robot::InvalidCommandError
+    puts 'Invalid command. Try again.'
+  end
+end
